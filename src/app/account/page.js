@@ -67,10 +67,12 @@ export default function AccountPage() {
   useEffect(() => {
     loadData();
 
-    // Auto-sync polling every 2.5s for live fulfillment updates
+    // Auto-sync polling every 10s for live fulfillment updates when tab is active
     const timer = setInterval(() => {
-      loadData();
-    }, 2500);
+      if (typeof document !== 'undefined' && document.visibilityState === 'visible') {
+        loadData();
+      }
+    }, 10000);
 
     const onFocus = () => loadData();
     window.addEventListener('focus', onFocus);

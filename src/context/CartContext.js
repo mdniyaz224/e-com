@@ -76,10 +76,10 @@ export function CartProvider({ children }) {
 
   const fetchCart = useCallback(async () => {
     try {
-      const res = await fetch(`${API_URL}/api/cart`);
+      const res = await fetch(`${API_URL}/api/cart?_t=${Date.now()}`, { cache: 'no-store' });
       const data = await res.json();
-      setCartItems(data.items);
-      setPriceDetails(data.priceDetails);
+      setCartItems(data.items || []);
+      setPriceDetails(data.priceDetails || null);
     } catch (err) {
       console.error('Failed to fetch cart:', err);
     } finally {
@@ -145,6 +145,8 @@ export function CartProvider({ children }) {
   }, []);
 
   const clearCart = useCallback(async () => {
+    setCartItems([]);
+    setPriceDetails(null);
     try {
       await fetch(`${API_URL}/api/cart/clear`, {
         method: 'DELETE',

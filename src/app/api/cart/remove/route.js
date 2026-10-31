@@ -3,10 +3,19 @@ import { getCart, saveCart } from '@/lib/dataStore';
 
 export async function DELETE(request) {
   try {
-    const { id } = await request.json();
+    const { searchParams } = new URL(request.url);
+    let id = searchParams.get('id') || searchParams.get('productId');
+
+    if (!id) {
+      const body = await request.json().catch(() => ({}));
+      id = body.id || body.productId;
+    }
+
     let cartItems = await getCart();
-    cartItems = cartItems.filter((i) => i.id !== id);
-    saveCart(cartItems);
+    if (id) {
+      cartItems = cartItems.filter((i) => String(i.id) !== String(id) && String(i.productId) !== String(id));
+      saveCart(cartItems);
+    }
 
     return NextResponse.json({ success: true, cart: cartItems });
   } catch (err) {
@@ -14,3 +23,6 @@ export async function DELETE(request) {
   }
 }
 
+export async function POST(request) {
+  return DELETE(request);
+}

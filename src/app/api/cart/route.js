@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getCart } from '@/lib/dataStore';
+import { getCart, saveCart } from '@/lib/dataStore';
 
 export async function GET() {
   const cartItems = await getCart();
@@ -28,3 +28,7 @@ export async function GET() {
   });
 }
 
+export async function DELETE() {
+  await saveCart([]);
+  return NextResponse.json({ success: true, cart: [] });
+}

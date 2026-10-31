@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getOrders, saveOrders, pushNotification } from '@/lib/dataStore';
+import { getOrders, saveOrders, pushNotification, getCart, saveCart } from '@/lib/dataStore';
 
 export function attachOrderMeta(order) {
   const createdDate = order.date ? new Date(order.date) : new Date();
@@ -141,6 +141,16 @@ export async function POST(request) {
     const orders = await getOrders();
     orders.unshift(newOrder);
     await saveOrders(orders);
+
+    // Automatically remove ordered items from shopping cart
+    try {
+      const currentCart = await getCart();
+      const orderedIds = new Set((items || []).map((i) => String(i.productId || i.id)));
+      const remainingCart = currentCart.filter((i) => !orderedIds.has(String(i.productId || i.id)));
+      await saveCart(remainingCart);
+    } catch (cartErr) {
+      console.warn('Failed to clear ordered items from cart:', cartErr.message);
+    }
 
     try {
       await pushNotification({

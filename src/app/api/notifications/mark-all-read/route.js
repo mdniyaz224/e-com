@@ -1,21 +1,27 @@
 import { NextResponse } from 'next/server';
-import { getNotifications, saveNotifications } from '@/lib/dataStore';
+import { markAllNotificationsRead } from '@/lib/dataStore';
+
+const noCacheHeaders = {
+  'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0',
+  Pragma: 'no-cache',
+};
 
 export async function POST() {
-  const notifications = await getNotifications();
-  notifications.forEach((n) => {
-    n.read = true;
-  });
-  await saveNotifications(notifications);
-
-  return NextResponse.json({
-    success: true,
-    message: 'All notifications marked as read',
-    unreadCount: 0,
-  });
+  await markAllNotificationsRead();
+  return NextResponse.json(
+    {
+      success: true,
+      message: 'All notifications marked as read',
+      unreadCount: 0,
+    },
+    { headers: noCacheHeaders }
+  );
 }
 
 export async function PATCH() {
   return POST();
 }
 
+export async function GET() {
+  return POST();
+}

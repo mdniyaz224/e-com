@@ -35,10 +35,12 @@ export default function MyOrdersPage() {
   useEffect(() => {
     fetchOrders();
 
-    // Live background polling every 2.5 seconds
+    // Live background polling every 8 seconds when tab is active
     const interval = setInterval(() => {
-      fetchOrders();
-    }, 2500);
+      if (typeof document !== 'undefined' && document.visibilityState === 'visible') {
+        fetchOrders();
+      }
+    }, 8000);
 
     const onFocus = () => fetchOrders();
     window.addEventListener('focus', onFocus);

@@ -286,13 +286,122 @@ export async function saveNotifications(notifs) {
   globalStore.notifications = deduplicated;
   saveJson('notifications.json', deduplicated);
 
+  try {
+    const apiPath = path.resolve(process.cwd(), 'api-server/data/notifications.json');
+    if (fs.existsSync(apiPath)) {
+      fs.writeFileSync(apiPath, JSON.stringify(deduplicated, null, 2), 'utf-8');
+    }
+  } catch {}
+
   const db = await getDatabase();
   if (db) {
     const col = db.collection('notifications');
-    for (const n of deduplicated) {
-      await col.updateOne({ id: n.id }, { $set: n }, { upsert: true });
+    if (deduplicated.length === 0) {
+      await col.deleteMany({});
+    } else {
+      const currentIds = deduplicated.map((n) => n.id).filter(Boolean);
+      await col.deleteMany({ id: { $nin: currentIds } });
+      for (const n of deduplicated) {
+        if (n && n.id) {
+          await col.updateOne({ id: n.id }, { $set: n }, { upsert: true });
+        }
+      }
     }
   }
+}
+
+export async function markAllNotificationsRead() {
+  const db = await getDatabase();
+  if (db) {
+    const col = db.collection('notifications');
+    await col.updateMany({}, { $set: { read: true } });
+  }
+
+  const notifs = await getNotifications();
+  for (const n of notifs) {
+    n.read = true;
+  }
+  const deduplicated = deduplicateNotifications(notifs);
+  globalStore.notifications = deduplicated;
+  saveJson('notifications.json', deduplicated);
+
+  try {
+    const apiPath = path.resolve(process.cwd(), 'api-server/data/notifications.json');
+    if (fs.existsSync(apiPath)) {
+      fs.writeFileSync(apiPath, JSON.stringify(deduplicated, null, 2), 'utf-8');
+    }
+  } catch {}
+
+  return deduplicated;
+}
+
+export async function markNotificationRead(id) {
+  const db = await getDatabase();
+  if (db) {
+    const col = db.collection('notifications');
+    await col.updateOne({ id }, { $set: { read: true } });
+  }
+
+  const notifs = await getNotifications();
+  const notif = notifs.find((n) => n.id === id);
+  if (notif) {
+    notif.read = true;
+  }
+  const deduplicated = deduplicateNotifications(notifs);
+  globalStore.notifications = deduplicated;
+  saveJson('notifications.json', deduplicated);
+
+  try {
+    const apiPath = path.resolve(process.cwd(), 'api-server/data/notifications.json');
+    if (fs.existsSync(apiPath)) {
+      fs.writeFileSync(apiPath, JSON.stringify(deduplicated, null, 2), 'utf-8');
+    }
+  } catch {}
+
+  return notif;
+}
+
+export async function deleteNotificationById(id) {
+  const db = await getDatabase();
+  if (db) {
+    const col = db.collection('notifications');
+    await col.deleteOne({ id });
+  }
+
+  const notifs = await getNotifications();
+  const filtered = notifs.filter((n) => n.id !== id);
+  const deduplicated = deduplicateNotifications(filtered);
+  globalStore.notifications = deduplicated;
+  saveJson('notifications.json', deduplicated);
+
+  try {
+    const apiPath = path.resolve(process.cwd(), 'api-server/data/notifications.json');
+    if (fs.existsSync(apiPath)) {
+      fs.writeFileSync(apiPath, JSON.stringify(deduplicated, null, 2), 'utf-8');
+    }
+  } catch {}
+
+  return deduplicated;
+}
+
+export async function clearAllNotifications() {
+  const db = await getDatabase();
+  if (db) {
+    const col = db.collection('notifications');
+    await col.deleteMany({});
+  }
+
+  globalStore.notifications = [];
+  saveJson('notifications.json', []);
+
+  try {
+    const apiPath = path.resolve(process.cwd(), 'api-server/data/notifications.json');
+    if (fs.existsSync(apiPath)) {
+      fs.writeFileSync(apiPath, JSON.stringify([], null, 2), 'utf-8');
+    }
+  } catch {}
+
+  return [];
 }
 
 export async function pushNotification(notif) {
@@ -319,45 +428,16 @@ export async function pushNotification(notif) {
 
 // 6. CART (Session based / in-memory or persisted)
 export async function getCart() {
-  if (!globalStore.cart) {
-    globalStore.cart = [
-      {
-        id: 1,
-        productId: 1,
-        name: 'NovaSound Pro ANC Wireless Headphones (Matte Obsidian)',
-        image: '/images/headphones.png',
-        price: 2499,
-        originalPrice: 6999,
-        discount: 64,
-        seller: 'RetailNet',
-        color: 'Matte Obsidian',
-        quantity: 1,
-        isAssured: true,
-        deliveryBy: 'Tomorrow, 2 PM',
-        deliveryFree: true,
-      },
-      {
-        id: 2,
-        productId: 7,
-        name: 'Braided Fast Charging Type-C Cable 65W (1.5m)',
-        image: '/images/usb-cable.png',
-        price: 349,
-        originalPrice: 999,
-        discount: 65,
-        seller: 'TechElectro',
-        color: 'Black',
-        quantity: 1,
-        isAssured: true,
-        deliveryBy: 'Thursday',
-        deliveryFree: true,
-      },
-    ];
+  if (globalStore.cart === undefined) {
+    globalStore.cart = loadJson('cart.json', []);
   }
   return globalStore.cart;
 }
 
 export async function saveCart(cart) {
-  globalStore.cart = cart;
+  const safeCart = Array.isArray(cart) ? cart : [];
+  globalStore.cart = safeCart;
+  saveJson('cart.json', safeCart);
 }
 
 // 7. AUTH OTP & SESSIONS STORE

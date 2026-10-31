@@ -55,10 +55,12 @@ function OrderSuccessContent() {
     if (orderId) {
       fetchOrderData();
 
-      // Poll every 2.5 seconds so admin updates show up immediately
+      // Poll every 8 seconds when active so admin updates show up smoothly
       const interval = setInterval(() => {
-        fetchOrderData();
-      }, 2500);
+        if (typeof document !== 'undefined' && document.visibilityState === 'visible') {
+          fetchOrderData();
+        }
+      }, 8000);
 
       // Also refresh whenever user switches back to this tab
       const onFocus = () => fetchOrderData();

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useNotifications } from '@/context/NotificationContext';
@@ -43,12 +43,12 @@ export default function NotificationsPage() {
     clearAllNotifications
   } = useNotifications();
 
-  const [activeTab, setActiveTab] = useState('all'); // 'all' | 'orders' | 'offers' | 'rewards'
+  const [activeTab, setActiveTab] = useState('all'); // 'all' | 'unread' | 'orders' | 'offers' | 'rewards'
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const handleRefresh = async () => {
     setIsRefreshing(true);
-    await fetchNotifications(activeTab);
+    await fetchNotifications(activeTab === 'unread' ? 'all' : activeTab);
     setTimeout(() => setIsRefreshing(false), 500);
   };
 
@@ -77,6 +77,7 @@ export default function NotificationsPage() {
   // Filter notifications based on active tab
   const filteredNotifications = notifications.filter((n) => {
     if (activeTab === 'all') return true;
+    if (activeTab === 'unread') return !n.read;
     return n.category?.toLowerCase() === activeTab.toLowerCase();
   });
 
@@ -106,9 +107,13 @@ export default function NotificationsPage() {
       <div className={styles.pageHeader}>
         <div className={styles.headerTitleWrap}>
           <h1 className={styles.pageTitle}>🔔 Notifications</h1>
-          {unreadCount > 0 && (
+          {unreadCount > 0 ? (
             <span className={styles.unreadPill}>
               {unreadCount} Unread
+            </span>
+          ) : (
+            <span style={{ fontSize: '12px', fontWeight: 700, color: '#16a34a', background: '#dcfce7', padding: '3px 10px', borderRadius: '20px', border: '1px solid #bbf7d0' }}>
+              ✓ All Caught Up
             </span>
           )}
         </div>
@@ -155,10 +160,30 @@ export default function NotificationsPage() {
         </button>
 
         <button
+          className={`${styles.tabBtn} ${activeTab === 'unread' ? styles.tabBtnActive : ''}`}
+          onClick={() => handleTabChange('unread')}
+        >
+          <span>🔴 Unread</span>
+          <span
+            style={{
+              background: unreadCount > 0 ? '#ef4444' : '#64748b',
+              color: '#ffffff',
+              fontSize: '11px',
+              fontWeight: 700,
+              padding: '2px 7px',
+              borderRadius: '10px',
+              marginLeft: '4px',
+            }}
+          >
+            {unreadCount}
+          </span>
+        </button>
+
+        <button
           className={`${styles.tabBtn} ${activeTab === 'orders' ? styles.tabBtnActive : ''}`}
           onClick={() => handleTabChange('orders')}
         >
-          <span>📦 Orders & Tracking</span>
+          <span>📦 Orders</span>
           <span className={styles.tabBadge}>{ordersCount}</span>
         </button>
 
@@ -166,7 +191,7 @@ export default function NotificationsPage() {
           className={`${styles.tabBtn} ${activeTab === 'offers' ? styles.tabBtnActive : ''}`}
           onClick={() => handleTabChange('offers')}
         >
-          <span>🏷️ Deals & Offers</span>
+          <span>🏷️ Deals</span>
           <span className={styles.tabBadge}>{offersCount}</span>
         </button>
 
@@ -174,7 +199,7 @@ export default function NotificationsPage() {
           className={`${styles.tabBtn} ${activeTab === 'rewards' ? styles.tabBtnActive : ''}`}
           onClick={() => handleTabChange('rewards')}
         >
-          <span>🪙 SuperCoins & Rewards</span>
+          <span>🪙 Rewards</span>
           <span className={styles.tabBadge}>{rewardsCount}</span>
         </button>
       </div>
@@ -223,9 +248,20 @@ export default function NotificationsPage() {
                 {/* Content Area */}
                 <div className={styles.contentArea}>
                   <div className={styles.cardHeader}>
-                    <span className={styles.categoryTag}>
-                      {notif.category || 'Alert'}
-                    </span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span className={styles.categoryTag}>
+                        {notif.category || 'Alert'}
+                      </span>
+                      {isUnread ? (
+                        <span style={{ fontSize: '11px', fontWeight: 700, color: '#dc2626', background: '#fee2e2', padding: '1px 6px', borderRadius: '4px' }}>
+                          ● New
+                        </span>
+                      ) : (
+                        <span style={{ fontSize: '11px', fontWeight: 600, color: '#64748b', background: '#f1f5f9', padding: '1px 6px', borderRadius: '4px' }}>
+                          ✓ Read
+                        </span>
+                      )}
+                    </div>
                     <button
                       className={styles.deleteBtn}
                       onClick={() => deleteNotification(notif.id)}
@@ -268,7 +304,7 @@ export default function NotificationsPage() {
                           className={styles.markReadBtn}
                           onClick={() => markAsRead(notif.id)}
                         >
-                          Mark as read
+                          ✓ Mark as read
                         </button>
                       )}
 

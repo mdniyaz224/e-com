@@ -37,10 +37,12 @@ export default function OrderDetailsPage({ params: paramsPromise }) {
   useEffect(() => {
     fetchOrder();
 
-    // Auto-sync every 2.5 seconds
+    // Auto-sync every 8 seconds when tab is active
     const interval = setInterval(() => {
-      fetchOrder();
-    }, 2500);
+      if (typeof document !== 'undefined' && document.visibilityState === 'visible') {
+        fetchOrder();
+      }
+    }, 8000);
 
     const onFocus = () => fetchOrder();
     window.addEventListener('focus', onFocus);

@@ -15,10 +15,10 @@ export function NotificationProvider({ children }) {
   const fetchNotifications = useCallback(async (category = 'all') => {
     try {
       const url = category && category !== 'all'
-        ? `${API_URL}/api/notifications?category=${category}`
-        : `${API_URL}/api/notifications`;
+        ? `${API_URL}/api/notifications?category=${category}&_t=${Date.now()}`
+        : `${API_URL}/api/notifications?_t=${Date.now()}`;
 
-      const res = await fetch(url);
+      const res = await fetch(url, { cache: 'no-store' });
       if (res.ok) {
         const data = await res.json();
         setNotifications(data.notifications || []);
@@ -34,7 +34,7 @@ export function NotificationProvider({ children }) {
   // Lightweight unread counter check for background polling
   const checkUnreadCount = useCallback(async () => {
     try {
-      const res = await fetch(`${API_URL}/api/notifications/unread-count`);
+      const res = await fetch(`${API_URL}/api/notifications/unread-count?_t=${Date.now()}`, { cache: 'no-store' });
       if (res.ok) {
         const data = await res.json();
         setUnreadCount(data.unreadCount || 0);
@@ -47,10 +47,12 @@ export function NotificationProvider({ children }) {
   useEffect(() => {
     fetchNotifications();
 
-    // Live background polling every 3s
+    // Live background polling when tab is active (every 12s)
     const timer = setInterval(() => {
-      checkUnreadCount();
-    }, 3000);
+      if (typeof document !== 'undefined' && document.visibilityState === 'visible') {
+        checkUnreadCount();
+      }
+    }, 12000);
 
     const onFocus = () => {
       fetchNotifications();
@@ -90,9 +92,19 @@ export function NotificationProvider({ children }) {
     setUnreadCount(0);
 
     try {
-      await fetch(`${API_URL}/api/notifications/read-all`, {
-        method: 'PATCH'
+      const res = await fetch(`${API_URL}/api/notifications/mark-all-read`, {
+        method: 'POST'
       });
+      if (res.ok) {
+        const data = await res.json();
+        if (typeof data.unreadCount === 'number') {
+          setUnreadCount(data.unreadCount);
+        }
+      } else {
+        await fetch(`${API_URL}/api/notifications/read-all`, {
+          method: 'PATCH'
+        });
+      }
     } catch (err) {
       console.error('Failed to mark all as read:', err);
     }
