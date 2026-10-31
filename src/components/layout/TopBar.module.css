@@ -1,0 +1,643 @@
+.topBar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: var(--color-bg-primary);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  width: 100%;
+}
+
+.navContainer {
+  max-width: var(--max-app-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.mainRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px 8px;
+  gap: 16px;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.logoIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.logoText {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-primary-blue);
+  letter-spacing: -0.3px;
+}
+
+/* Desktop Search */
+.desktopSearch {
+  display: none;
+  flex: 1;
+  max-width: 620px;
+  margin: 0 12px;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .desktopSearch {
+    display: block;
+  }
+  .mobileSearch {
+    display: none !important;
+  }
+}
+
+.topIcons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.iconBtn:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-primary-blue);
+}
+
+.navBtnLabel {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.desktopNavLink {
+  display: none;
+}
+
+.desktopOnly {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktopNavLink {
+    display: flex;
+  }
+  .desktopOnly {
+    display: inline-block;
+  }
+}
+
+.cartBtn {
+  position: relative;
+}
+
+.cartIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  background: var(--color-accent-red);
+  color: white;
+  font-size: 9px;
+  font-weight: 800;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.avatarSmall {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-circle);
+  background: var(--color-bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+}
+
+/* Search */
+.searchRow {
+  padding: 0 16px 10px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: 0 14px;
+  height: 42px;
+  gap: 10px;
+  transition: all var(--transition-fast);
+}
+
+.searchBox:focus-within {
+  box-shadow: 0 0 0 2px rgba(40, 116, 240, 0.2);
+  background: var(--color-bg-primary);
+  border-color: var(--color-primary-blue);
+}
+
+.searchIcon {
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  height: 100%;
+  background: transparent;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.searchActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.searchActionBtn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-circle);
+  transition: background var(--transition-fast);
+}
+
+.searchActionBtn:hover {
+  background: var(--color-border-light);
+}
+
+/* Address Row */
+.addressRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px 8px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.addressText {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.addressText strong {
+  color: var(--color-text-primary);
+}
+
+.addressLabel {
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-bold);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  text-transform: uppercase;
+}
+
+.addressChange {
+  color: var(--color-primary-blue);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: var(--radius-xs);
+  transition: background var(--transition-fast);
+}
+
+.addressChange:hover {
+  background: var(--color-primary-blue-light);
+}
+
+.searchSubmitBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Address Modal */
+.addressModalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: fadeIn 0.2s ease;
+}
+
+.addressModalBox {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-lg);
+  max-width: 440px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  animation: scaleUp 0.2s ease;
+}
+
+.addressModalTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: 6px;
+}
+
+.addressModalSubtitle {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.modalCloseBtn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #777;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.gpsDetectBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f0f5ff;
+  border: 1.5px solid #2874f0;
+  border-radius: var(--radius-md);
+  color: #2874f0;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-bottom: 12px;
+}
+
+.gpsDetectBtn:hover {
+  background: #2874f0;
+  color: #ffffff;
+}
+
+.dividerRow {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.dividerRow::before,
+.dividerRow::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dividerRow span {
+  padding: 0 8px;
+}
+
+.inputSearchingSpinner {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  font-size: 14px;
+}
+
+.suggestionsList {
+  border: 1px solid #e0e0e0;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  max-height: 180px;
+  overflow-y: auto;
+  margin-top: -10px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.suggestionItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f5f5f5;
+  transition: background var(--transition-fast);
+}
+
+.suggestionItem:last-child {
+  border-bottom: none;
+}
+
+.suggestionItem:hover {
+  background: #f0f5ff;
+}
+
+.suggestionText {
+  font-size: 12px;
+  color: #333;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.addressModalInput {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
+  margin-bottom: 14px;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.addressModalInput:focus {
+  border-color: var(--color-primary-blue);
+  background: var(--color-bg-primary);
+  box-shadow: 0 0 0 3px rgba(40, 116, 240, 0.15);
+}
+
+.addressModalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.addressModalCancelBtn {
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-medium);
+  background: var(--color-bg-primary);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.addressModalCancelBtn:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+.addressModalSaveBtn {
+  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: var(--color-primary-blue);
+  color: white;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.addressModalSaveBtn:hover {
+  background: #1c5ec7;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* Flipkart Auth Integration Styles */
+.userMenuWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.flipkartLoginBtn {
+  background: #ffffff;
+  color: #2874f0;
+  border: 1px solid #c7d8ff;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.flipkartLoginBtn:hover {
+  background: #2874f0;
+  color: #ffffff;
+  border-color: #2874f0;
+}
+
+.userProfileBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.userProfileBtn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.userNameLabel {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdownChevron {
+  color: #878787;
+  transition: transform 0.2s ease;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: white;
+  min-width: 220px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 8px 0;
+  z-index: 2100;
+  border: 1px solid #ebebeb;
+  animation: dropdownFade 0.15s ease-out;
+}
+
+.dropdownMenu::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 24px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  transform: rotate(45deg);
+  border-left: 1px solid #ebebeb;
+  border-top: 1px solid #ebebeb;
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownSignupHeader {
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #717478;
+}
+
+.dropdownSignupLink {
+  background: none;
+  border: none;
+  color: #2874f0;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dropdownSignupLink:hover {
+  text-decoration: underline;
+}
+
+.dropdownHeader {
+  padding: 10px 16px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  color: #212121;
+}
+
+.dropdownPhone {
+  font-size: 11px;
+  color: #717478;
+}
+
+.dropdownDivider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 4px 0;
+}
+
+.dropdownItem {
+  padding: 9px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #212121;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.dropdownItem:hover {
+  background: #f1f5f9;
+  color: #2874f0;
+}
+
+.dropdownLogout {
+  color: #dc2626 !important;
+}
+
+.dropdownLogout:hover {
+  background: #fef2f2 !important;
+  color: #dc2626 !important;
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "BIG PULSE DAYS",
+    "subtitle": "Up to 80% Off",
+    "description": "Top Smartphones & Hi-Fi Audio",
+    "ctaText": "Shop Now",
+    "countdown": { "hours": 8, "minutes": 42, "seconds": 10 },
+    "bgGradient": ["#FF6200", "#FF8C00"],
+    "image": "/images/promo-banner.png"
+  }
+]

@@ -1,0 +1,327 @@
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #1e293b;
+}
+
+.breadcrumb {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a {
+  color: #2874f0;
+  text-decoration: none;
+}
+
+/* Help Hero Banner */
+.hero {
+  background: linear-gradient(135deg, #1e3a8a, #2874f0);
+  border-radius: 14px;
+  padding: 30px 24px;
+  color: #ffffff;
+  margin-bottom: 28px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(40, 116, 240, 0.25);
+}
+
+.heroTitle {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.heroSub {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 18px;
+}
+
+.searchWrap {
+  max-width: 540px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 20px 12px 42px;
+  border-radius: 30px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* Topic Categories Grid */
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.topicCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.topicCard:hover {
+  transform: translateY(-2px);
+  border-color: #2874f0;
+  box-shadow: 0 6px 16px rgba(40, 116, 240, 0.1);
+}
+
+.topicIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background: #eff6ff;
+  color: #2874f0;
+  flex-shrink: 0;
+}
+
+.topicTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.topicDesc {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Section Header */
+.sectionHeader {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* FAQ Accordion */
+.faqList {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.faqItem {
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+.faqQuestion {
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  background: #ffffff;
+  transition: background 0.15s;
+}
+
+.faqQuestion:hover {
+  background: #f8fafc;
+}
+
+.faqAnswer {
+  padding: 0 20px 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* Interactive Live Chat Assistant */
+.chatCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.chatMessages {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 16px;
+  height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.msgBot {
+  align-self: flex-start;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border-top-left-radius: 2px;
+  font-size: 13px;
+  color: #1e293b;
+  max-width: 85%;
+  line-height: 1.5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.msgUser {
+  align-self: flex-end;
+  background: #2874f0;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border-top-right-radius: 2px;
+  font-size: 13px;
+  max-width: 85%;
+  line-height: 1.5;
+}
+
+.quickPrompts {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.promptChip {
+  background: #eff6ff;
+  color: #2874f0;
+  border: 1px solid #bfdbfe;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.promptChip:hover {
+  background: #dbeafe;
+}
+
+.chatInputRow {
+  display: flex;
+  gap: 10px;
+}
+
+.chatInput {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+}
+
+.chatInput:focus {
+  border-color: #2874f0;
+}
+
+.sendBtn {
+  background: #2874f0;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sendBtn:hover {
+  background: #1a5dc8;
+}
+
+/* Contact Cards Grid */
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.contactCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.contactIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ecfdf5;
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.contactInfo h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.contactInfo p {
+  font-size: 12px;
+  color: #64748b;
+}
+
+@media (max-width: 640px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+

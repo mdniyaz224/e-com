@@ -1,0 +1,459 @@
+/* Flipkart Standard Tax Invoice Styling */
+
+.invoicePage {
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  padding: 24px 16px 60px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #111827;
+}
+
+/* Screen Only Toolbar */
+.controlBar {
+  max-width: 840px;
+  margin: 0 auto 20px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  transition: all 0.15s;
+}
+
+.backBtn:hover {
+  background: #e2e8f0;
+}
+
+.printBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2874f0;
+  color: #ffffff;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(40, 116, 240, 0.3);
+  transition: background 0.15s;
+}
+
+.printBtn:hover {
+  background: #1a5dc8;
+}
+
+/* Formal Invoice Sheet (A4 Dimensions on Screen) */
+.invoiceSheet {
+  max-width: 840px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 32px 36px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  font-size: 12px;
+  line-height: 1.45;
+  color: #111827;
+  position: relative;
+}
+
+/* Top Branding & Document Title Header */
+.headerGrid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #111827;
+  align-items: flex-start;
+}
+
+.brandLogoRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.brandLogoText {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #2874f0;
+}
+
+.brandLogoTag {
+  font-size: 11px;
+  font-weight: 800;
+  background: #ff6200;
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-style: italic;
+}
+
+.companyAddress {
+  font-size: 11px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.invoiceTitleBlock {
+  text-align: right;
+}
+
+.invoiceMainTitle {
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #000000;
+  letter-spacing: 0.3px;
+  margin-bottom: 2px;
+}
+
+.invoiceSubTitle {
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+/* Barcode representation */
+.barcodeWrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.barcodeLines {
+  font-family: 'Courier New', monospace;
+  font-size: 26px;
+  letter-spacing: 2px;
+  line-height: 0.8;
+  color: #000;
+  user-select: none;
+}
+
+.barcodeText {
+  font-size: 10px;
+  font-family: monospace;
+  font-weight: 700;
+  color: #334155;
+}
+
+/* Metadata Dual Boxes (Order Details & Seller Details) */
+.metaBoxGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #111827;
+  border-top: none;
+}
+
+.metaCol {
+  padding: 12px 16px;
+}
+
+.metaCol:first-child {
+  border-right: 1px solid #111827;
+}
+
+.metaRow {
+  display: flex;
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+.metaRow:last-child {
+  margin-bottom: 0;
+}
+
+.metaLabel {
+  width: 130px;
+  font-weight: 700;
+  color: #374151;
+  flex-shrink: 0;
+}
+
+.metaValue {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Addresses Section */
+.addressGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #111827;
+  border-top: none;
+}
+
+.addressCol {
+  padding: 12px 16px;
+}
+
+.addressCol:first-child {
+  border-right: 1px solid #111827;
+}
+
+.addressTitle {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  color: #000000;
+  background: #f8fafc;
+  padding: 3px 6px;
+  border-left: 3px solid #2874f0;
+}
+
+.addressText {
+  font-size: 11px;
+  color: #1f2937;
+  line-height: 1.45;
+}
+
+/* Items Tax Invoice Table (Flipkart Structure) */
+.tableWrap {
+  margin-top: 0;
+  overflow-x: auto;
+}
+
+.invoiceTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  border: 1px solid #111827;
+  border-top: none;
+}
+
+.invoiceTable th {
+  background: #f1f5f9;
+  border: 1px solid #111827;
+  padding: 8px 6px;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 9.5px;
+  letter-spacing: 0.3px;
+  color: #000000;
+}
+
+.invoiceTable td {
+  border: 1px solid #cbd5e1;
+  padding: 8px 6px;
+  vertical-align: top;
+}
+
+.alignLeft { text-align: left !important; }
+.alignCenter { text-align: center !important; }
+.alignRight { text-align: right !important; }
+
+.itemTitleBold {
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 2px;
+}
+
+.itemSubDetail {
+  font-size: 10px;
+  color: #4b5563;
+}
+
+/* Totals Summary Rows */
+.totalRow {
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+.totalRow td {
+  border-top: 1px solid #111827 !important;
+  border-bottom: 1px solid #111827 !important;
+}
+
+.grandTotalRow {
+  background: #f1f5f9;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.grandTotalRow td {
+  border-top: 2px solid #111827 !important;
+  border-bottom: 2px solid #111827 !important;
+}
+
+/* Words & Bottom Breakdown Block */
+.bottomMetaGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  border: 1px solid #111827;
+  border-top: none;
+}
+
+.wordsCol {
+  padding: 12px 16px;
+  border-right: 1px solid #111827;
+}
+
+.wordsTitle {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+.wordsText {
+  font-size: 11px;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 12px;
+}
+
+.declarationBox {
+  font-size: 9.5px;
+  color: #4b5563;
+  line-height: 1.4;
+  border-top: 1px dashed #cbd5e1;
+  padding-top: 8px;
+}
+
+.signatureCol {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.signForCompany {
+  font-size: 11px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.stampBox {
+  margin: 12px 0 6px;
+  border: 1.5px dashed #2874f0;
+  border-radius: 4px;
+  padding: 4px 12px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  transform: rotate(-2deg);
+}
+
+.signLabel {
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Invoice Footer Note */
+.invoiceFooter {
+  margin-top: 16px;
+  padding-top: 8px;
+  border-top: 1px solid #cbd5e1;
+  display: flex;
+  justify-content: space-between;
+  font-size: 9.5px;
+  color: #64748b;
+  align-items: center;
+}
+
+/* ========================================================
+   Print Media Query (Flipkart Official Print Output)
+   ======================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 8mm 6mm;
+  }
+
+  .controlBar {
+    display: none !important;
+  }
+
+  .invoicePage {
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .invoiceSheet {
+    border: 1px solid #000000 !important;
+    box-shadow: none !important;
+    padding: 16px 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .headerGrid,
+  .metaBoxGrid,
+  .addressGrid,
+  .invoiceTable,
+  .invoiceTable th,
+  .bottomMetaGrid {
+    border-color: #000000 !important;
+  }
+
+  .invoiceTable td {
+    border-color: #555555 !important;
+  }
+
+  .stampBox {
+    border-color: #000000 !important;
+    color: #000000 !important;
+    background: transparent !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .headerGrid,
+  .metaBoxGrid,
+  .addressGrid,
+  .bottomMetaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .metaCol:first-child,
+  .addressCol:first-child,
+  .wordsCol {
+    border-right: none;
+    border-bottom: 1px solid #111827;
+  }
+
+  .invoiceSheet {
+    padding: 16px;
+  }
+
+  .signatureCol {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+

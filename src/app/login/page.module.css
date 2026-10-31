@@ -1,0 +1,32 @@
+.loginPage {
+  min-height: calc(100vh - 120px);
+  background: #f1f3f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 16px;
+}
+
+.loginCardWrapper {
+  width: 100%;
+  max-width: 820px;
+}
+
+.guestBanner {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: #717478;
+}
+
+.guestLink {
+  color: #2874f0;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.guestLink:hover {
+  text-decoration: underline;
+}
+

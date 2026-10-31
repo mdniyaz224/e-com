@@ -1,0 +1,85 @@
+{
+  "id": 1,
+  "name": "Rahul Sharma",
+  "phone": "+91 98765 43210",
+  "avatar": "/images/profile-avatar.png",
+  "isPlusMember": true,
+  "email": "rahul.sharma@pulsekart.in",
+  "gender": "Male",
+  "password": "pulsekart123",
+  "addresses": [
+    {
+      "id": 1,
+      "label": "HOME",
+      "name": "Rahul Sharma",
+      "pincode": "560034",
+      "address": "Flat 402, Lotus Greens, 4th Cross, Koramangala...",
+      "city": "Bengaluru",
+      "isDefault": true
+    }
+  ],
+  "orders": {
+    "recent": {
+      "id": "PK-9812489",
+      "productName": "NovaSound Pro ANC Wireless Headphones",
+      "productImage": "/images/headphones.png",
+      "items": 1,
+      "status": "Shipped",
+      "statusSteps": [
+        "Ordered",
+        "Packed",
+        "Shipped",
+        "Delivery"
+      ],
+      "currentStep": 2,
+      "deliveryBy": "Tomorrow by 2 PM"
+    }
+  },
+  "wishlistCount": 12,
+  "couponsCount": 4,
+  "pulsePay": {
+    "status": "Approved",
+    "availableCredit": 22452,
+    "totalApproved": 25000
+  },
+  "superCoins": {
+    "balance": 450,
+    "value": 450
+  },
+  "seller": {
+    "id": "IN-DEL-8941",
+    "isLive": true,
+    "todaySales": 18420,
+    "totalOrders": 14,
+    "dispatches": 3,
+    "pendingPickup": true,
+    "rating": 4.8,
+    "ratingLabel": "Top Rated"
+  },
+  "settings": {
+    "savedAddresses": 3,
+    "savedCards": 2,
+    "paymentApps": [
+      "Google Pay"
+    ],
+    "language": "English"
+  },
+  "savedCards": [
+    {
+      "id": 1,
+      "bank": "HDFC Bank",
+      "cardType": "Credit Card",
+      "last4": "4921",
+      "holder": "Rahul Sharma",
+      "expiry": "09/28"
+    },
+    {
+      "id": 2,
+      "bank": "Axis Bank",
+      "cardType": "PulseKart Co-branded",
+      "last4": "8832",
+      "holder": "Rahul Sharma",
+      "expiry": "11/27"
+    }
+  ]
+}

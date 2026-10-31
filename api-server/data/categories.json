@@ -1,0 +1,10 @@
+[
+  { "id": 1, "name": "Top Offers", "icon": "percent", "slug": "top-offers" },
+  { "id": 2, "name": "Mobiles", "icon": "smartphone", "slug": "mobiles" },
+  { "id": 3, "name": "Electronics", "icon": "headphones", "slug": "electronics" },
+  { "id": 4, "name": "Fashion", "icon": "shirt", "slug": "fashion" },
+  { "id": 5, "name": "Appliances", "icon": "tv", "slug": "appliances" },
+  { "id": 6, "name": "Grocery", "icon": "shopping-bag", "slug": "grocery" },
+  { "id": 7, "name": "Home", "icon": "home", "slug": "home-decor" },
+  { "id": 8, "name": "Beauty", "icon": "sparkles", "slug": "beauty" }
+]

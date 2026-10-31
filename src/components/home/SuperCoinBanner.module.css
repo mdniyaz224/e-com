@@ -1,0 +1,81 @@
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  margin: 0 12px 12px;
+  background: var(--color-bg-dark);
+  border-radius: var(--radius-lg);
+  animation: fadeIn 0.5s ease;
+}
+
+@media (min-width: 768px) {
+  .banner {
+    margin: 0 0 16px;
+    padding: 18px 24px;
+  }
+}
+
+.coinIcon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,215,0,0.15);
+  border-radius: var(--radius-circle);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-white);
+}
+
+.plusBadge {
+  font-size: 8px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent-yellow);
+  background: rgba(255,225,27,0.15);
+  padding: 2px 5px;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+.exploreBtn {
+  flex-shrink: 0;
+  background: var(--color-accent-green);
+  color: var(--color-text-white);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.exploreBtn:hover {
+  background: #2E7D32;
+  transform: scale(1.02);
+}
+
+.exploreBtn:active {
+  transform: scale(0.96);
+}

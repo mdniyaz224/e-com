@@ -1,0 +1,602 @@
+.accountPage {
+  background: var(--color-bg-secondary, #f1f3f6);
+  min-height: calc(100vh - var(--bottom-nav-height, 60px));
+  padding-bottom: 30px;
+}
+
+/* User Header Card */
+.userHeader {
+  background: white;
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border, #e0e0e0);
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .userHeader {
+    padding: 28px 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+}
+
+.profileInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2874f0 0%, #0d47a1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(40, 116, 240, 0.35);
+  flex-shrink: 0;
+}
+
+.userDetails h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #212121;
+  margin-bottom: 3px;
+}
+
+.userEmail {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 3px;
+}
+
+.phone {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.plusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(56, 142, 60, 0.12);
+  color: #2e7d32;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.editBtn {
+  background: #f0f4ff;
+  border: 1px solid #c7d8ff;
+  border-radius: 8px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #2874f0;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.editBtn:hover {
+  background: #2874f0;
+  color: white;
+}
+
+/* Quick Links Grid */
+.quickGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 14px;
+  background: white;
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .quickGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    padding: 18px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+}
+
+.quickCard {
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quickCard:hover {
+  background: #f0f5ff;
+  border-color: #c7d8ff;
+  transform: translateY(-1px);
+}
+
+.quickIcon {
+  font-size: 24px;
+}
+
+.quickText h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #212121;
+}
+
+.quickText p {
+  font-size: 11px;
+  color: #777;
+  margin-top: 2px;
+}
+
+/* Modal Popup for Edit Profile & Manage Addresses */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 2000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .modalOverlay {
+    align-items: center;
+    padding: 20px;
+  }
+}
+
+.modalSheet {
+  background: white;
+  width: 100%;
+  max-width: 520px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 16px 16px 0 0;
+  padding: 22px 20px 28px;
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 640px) {
+  .modalSheet {
+    border-radius: 16px;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.modalTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #212121;
+}
+
+.closeModalBtn {
+  background: #f0f0f0;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.formLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+}
+
+.formInput {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.formInput:focus {
+  border-color: #2874f0;
+}
+
+.saveProfileBtn {
+  width: 100%;
+  background: #2874f0;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+}
+
+.saveProfileBtn:hover:not(:disabled) {
+  background: #125cdb;
+}
+
+.saveProfileBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.cancelModalBtn {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelModalBtn:hover {
+  background: #e2e8f0;
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.genderGroup {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.genderOption {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #f8fafc;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.genderOptionActive {
+  background: #eff6ff;
+  border-color: #2874f0;
+  color: #2874f0;
+}
+
+.formAlertSuccess {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.formAlertError {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+/* Order Tracking Card */
+.trackingSection {
+  background: white;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #212121;
+}
+
+.statusTag {
+  background: rgba(56, 142, 60, 0.1);
+  color: #2e7d32;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.orderItem {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.orderImg {
+  width: 56px;
+  height: 56px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.orderInfo h5 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #212121;
+  line-height: 1.3;
+}
+
+.orderDate {
+  font-size: 11px;
+  color: #777;
+  margin-top: 4px;
+}
+
+.orderStepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.orderStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #777;
+  flex: 1;
+}
+
+.stepDot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ddd;
+  border: 2px solid white;
+}
+
+.stepDotCompleted {
+  background: #388e3c;
+}
+
+.stepDotCurrent {
+  background: #2874f0;
+  box-shadow: 0 0 0 3px rgba(40, 116, 240, 0.2);
+}
+
+.trackButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.trackBtn {
+  flex: 1;
+  background: #2874f0;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.helpBtn {
+  flex: 1;
+  background: white;
+  border: 1px solid #ccc;
+  color: #212121;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* PulsePay / Credit */
+.creditCard {
+  background: linear-gradient(135deg, #1c2534 0%, #2b3952 100%);
+  color: white;
+  padding: 16px;
+  margin: 0 14px 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.creditTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.creditTitle {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.creditBadge {
+  background: #388e3c;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.creditLimit {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.creditSub {
+  font-size: 11px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.payBillBtn {
+  background: #fb641b;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Settings List */
+.settingsSection {
+  background: white;
+  margin-bottom: 10px;
+}
+
+.settingItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.settingItem:hover {
+  background: #fafafa;
+}
+
+.settingItem:last-child {
+  border-bottom: none;
+}
+
+.settingLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.settingTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #212121;
+}
+
+.settingDesc {
+  font-size: 11px;
+  color: #777;
+  margin-top: 2px;
+}
+
+.logoutRow {
+  background: white;
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.logoutBtn {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.footerAppInfo {
+  text-align: center;
+  font-size: 10px;
+  color: #999;
+  letter-spacing: 0.5px;
+  padding-bottom: 20px;
+}

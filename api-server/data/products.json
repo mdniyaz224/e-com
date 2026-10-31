@@ -1,0 +1,713 @@
+[
+  {
+    "id": 1,
+    "name": "NovaSound Pro ANC Wireless Headphones with 50H Playtime, Fast Charging & Dual Pairing (Matte Obsidian)",
+    "shortName": "Wireless Noise-Cancelling...",
+    "brand": "NovaSound",
+    "category": "Audio Gear",
+    "categoryTag": "Hot in Audio Gear",
+    "images": [
+      "/images/headphones.png",
+      "/images/headphones-silver.png",
+      "/images/headphones-blue.png",
+      "/images/headphones-lifestyle.png"
+    ],
+    "price": 2499,
+    "originalPrice": 6999,
+    "discount": 64,
+    "rating": 4.4,
+    "ratingCount": 38912,
+    "reviewCount": 4120,
+    "seller": "RetailNet",
+    "isAssured": true,
+    "isTopDeal": true,
+    "freeDelivery": true,
+    "deliveryBy": "Tomorrow, 2 PM",
+    "deliveryHighlight": "Free Delivery by Tomorrow if ordered within 2 hrs 48 mins",
+    "highlights": [
+      "Active Noise Cancellation (up to 35dB Hybrid ANC)",
+      "Massive 50+ Hour total battery life on a single charge",
+      "Turbo Charge: 10 mins rapid charging = 10 hrs playback",
+      "IPX5 sweat and splash resistance rating",
+      "Dual device pairing with seamless auto-switching"
+    ],
+    "colors": [
+      {
+        "name": "Matte Obsidian",
+        "hex": "#2C2C2C",
+        "image": "/images/headphones.png"
+      },
+      {
+        "name": "Arctic Silver",
+        "hex": "#C0C0C0",
+        "image": "/images/headphones-silver.png"
+      },
+      {
+        "name": "Navy Blue",
+        "hex": "#1B3A5C",
+        "image": "/images/headphones-blue.png"
+      }
+    ],
+    "bankOffers": [
+      {
+        "type": "Bank Offer",
+        "description": "10% Instant Discount on HDFC Bank Credit Card EMI up to ₹1,600.",
+        "hasTC": true
+      },
+      {
+        "type": "Bank Offer",
+        "description": "5% Unlimited Cashback on PulseKart Axis Bank Card.",
+        "hasTC": true
+      },
+      {
+        "type": "Special Price",
+        "description": "Extra ₹500 off (price inclusive of cash discount).",
+        "hasTC": false
+      }
+    ],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "1 Year"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Ultra Smartwatch AMOLED Display with SpO2, Heart Rate & GPS Tracking",
+    "shortName": "Ultra Smartwatch AMOLED Display",
+    "brand": "WristTech",
+    "category": "Wearables",
+    "categoryTag": "Trending in Wearables",
+    "images": [
+      "/images/smartwatch.png",
+      "/images/smartwatch-silver.png",
+      "/images/smartwatch-rosegold.png"
+    ],
+    "price": 1999,
+    "originalPrice": 5999,
+    "discount": 66,
+    "rating": 4.2,
+    "ratingCount": 8920,
+    "reviewCount": 1540,
+    "seller": "WristTech Official",
+    "isAssured": true,
+    "isTopDeal": true,
+    "freeDelivery": true,
+    "deliveryBy": "Tomorrow, 5 PM",
+    "deliveryHighlight": "Free Delivery by Tomorrow if ordered within 4 hrs",
+    "highlights": [
+      "1.96\" AMOLED Display with Always-On Display",
+      "Advanced SpO2, Heart Rate & Stress Monitoring",
+      "Built-in GPS for accurate distance tracking",
+      "100+ Sports Modes with IP68 water resistance",
+      "Up to 7 days battery life"
+    ],
+    "colors": [
+      {
+        "name": "Midnight Black",
+        "hex": "#1A1A1A",
+        "image": "/images/smartwatch.png"
+      },
+      {
+        "name": "Silver Grey",
+        "hex": "#B8B8B8",
+        "image": "/images/smartwatch-silver.png"
+      },
+      {
+        "name": "Rose Gold",
+        "hex": "#B76E79",
+        "image": "/images/smartwatch-rosegold.png"
+      }
+    ],
+    "bankOffers": [
+      {
+        "type": "Bank Offer",
+        "description": "10% Instant Discount on HDFC Bank Credit Card EMI up to ₹800.",
+        "hasTC": true
+      }
+    ],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "1 Year"
+    }
+  },
+  {
+    "id": 3,
+    "name": "5G FlexiPhone 128GB with 108MP Camera, 5000mAh Battery",
+    "shortName": "5G Fl Smart...",
+    "brand": "FlexiTech",
+    "category": "Mobiles",
+    "categoryTag": "Bestseller in Mobiles",
+    "images": [
+      "/images/smartphone.png",
+      "/images/smartphone-blue.png"
+    ],
+    "price": 28999,
+    "originalPrice": 34999,
+    "discount": 17,
+    "rating": 4.5,
+    "ratingCount": 15230,
+    "reviewCount": 3200,
+    "seller": "FlexiTech Official",
+    "isAssured": true,
+    "isTopDeal": false,
+    "freeDelivery": true,
+    "deliveryBy": "Day after tomorrow",
+    "deliveryHighlight": "Free Delivery by Wednesday",
+    "highlights": [
+      "108MP Triple Camera with OIS",
+      "6.7\" Super AMOLED FHD+ Display",
+      "Dimensity 7200 5G Processor",
+      "5000 mAh Battery with 67W Fast Charging",
+      "128GB Storage, 8GB RAM"
+    ],
+    "colors": [
+      {
+        "name": "Cosmic Black",
+        "hex": "#0D0D0D",
+        "image": "/images/smartphone.png"
+      },
+      {
+        "name": "Glacier Blue",
+        "hex": "#7EC8E3",
+        "image": "/images/smartphone-blue.png"
+      }
+    ],
+    "bankOffers": [
+      {
+        "type": "Bank Offer",
+        "description": "Flat ₹3,000 off on HDFC Bank Credit Card.",
+        "hasTC": true
+      },
+      {
+        "type": "Exchange Offer",
+        "description": "Up to ₹15,000 off on Exchange.",
+        "hasTC": true
+      }
+    ],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "1 Year"
+    }
+  },
+  {
+    "id": 4,
+    "name": "BassBlast Portable Bluetooth Speaker 20W with RGB Lights & IPX7",
+    "shortName": "Bluetooth Speakers",
+    "brand": "BassBlast",
+    "category": "Electronics",
+    "categoryTag": "Trending in Electronics",
+    "images": [
+      "/images/bluetooth-speaker.png"
+    ],
+    "price": 799,
+    "originalPrice": 2999,
+    "discount": 73,
+    "rating": 4.1,
+    "ratingCount": 22340,
+    "reviewCount": 4100,
+    "seller": "SoundHub",
+    "isAssured": false,
+    "isTopDeal": false,
+    "freeDelivery": true,
+    "deliveryBy": "Tomorrow",
+    "deliveryHighlight": "Free by Tomorrow",
+    "highlights": [
+      "20W HD Sound with Deep Bass",
+      "Dynamic RGB LED Light Show",
+      "IPX7 Waterproof Rating",
+      "12 Hours Playtime",
+      "TWS Pairing for Stereo Sound"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Blue",
+        "hex": "#2196F3"
+      }
+    ],
+    "bankOffers": [],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "1 Year"
+    },
+    "trendingTag": "Min 40% Off",
+    "trendingSubtitle": "From ₹799"
+  },
+  {
+    "id": 5,
+    "name": "ProGamer RGB Mechanical Keyboard & Mouse Combo with Wrist Rest",
+    "shortName": "Gaming Peripherals",
+    "brand": "ProGamer",
+    "category": "Electronics",
+    "categoryTag": "Trending in Electronics",
+    "images": [
+      "/images/gaming-peripherals.png"
+    ],
+    "price": 1299,
+    "originalPrice": 3999,
+    "discount": 67,
+    "rating": 4.3,
+    "ratingCount": 9870,
+    "reviewCount": 2100,
+    "seller": "GameStore",
+    "isAssured": true,
+    "isTopDeal": false,
+    "freeDelivery": true,
+    "deliveryBy": "Tomorrow",
+    "deliveryHighlight": "Free by Tomorrow",
+    "highlights": [
+      "Cherry MX Blue Equivalent Switches",
+      "Full RGB Backlighting with 16M Colors",
+      "12000 DPI Optical Sensor Mouse",
+      "Detachable Magnetic Wrist Rest",
+      "Anti-Ghosting N-Key Rollover"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      }
+    ],
+    "bankOffers": [],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "1 Year"
+    },
+    "trendingTag": "Up to 70% Off",
+    "trendingSubtitle": "Top Brands Available"
+  },
+  {
+    "id": 6,
+    "name": "PowerVault 20000mAh Power Bank with 22.5W Fast Charging & LED Display",
+    "shortName": "Power Banks & Chargers",
+    "brand": "PowerVault",
+    "category": "Electronics",
+    "categoryTag": "Trending in Electronics",
+    "images": [
+      "/images/power-bank.png"
+    ],
+    "price": 899,
+    "originalPrice": 2499,
+    "discount": 64,
+    "rating": 4,
+    "ratingCount": 31200,
+    "reviewCount": 5400,
+    "seller": "PowerHub",
+    "isAssured": false,
+    "isTopDeal": false,
+    "freeDelivery": true,
+    "deliveryBy": "Tomorrow",
+    "deliveryHighlight": "Free by Tomorrow",
+    "highlights": [
+      "20000mAh Li-Polymer Battery",
+      "22.5W Fast Charging Support",
+      "LED Digital Display for Battery Level",
+      "Dual USB-A + USB-C Output",
+      "Slim & Lightweight Design"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "bankOffers": [],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "6 Months"
+    },
+    "trendingTag": "Special Launch",
+    "trendingSubtitle": "Under ₹999 Deals"
+  },
+  {
+    "id": 7,
+    "name": "Braided Fast Charging Type-C Cable 65W (1.5m)",
+    "shortName": "Type-C Cable 65W",
+    "brand": "CablePro",
+    "category": "Accessories",
+    "categoryTag": "Top Accessories",
+    "images": [
+      "/images/usb-cable.png"
+    ],
+    "price": 349,
+    "originalPrice": 999,
+    "discount": 65,
+    "rating": 4.1,
+    "ratingCount": 45200,
+    "reviewCount": 8900,
+    "seller": "TechElectro",
+    "isAssured": true,
+    "isTopDeal": false,
+    "freeDelivery": false,
+    "deliveryBy": "Thursday",
+    "deliveryHighlight": "Delivery by Thursday | Free",
+    "highlights": [
+      "65W PD Fast Charging Support",
+      "Premium Nylon Braided Build",
+      "480Mbps Data Transfer Speed",
+      "10000+ Bend Lifespan",
+      "Universal USB-C Compatibility"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      },
+      {
+        "name": "Red",
+        "hex": "#FF0000"
+      }
+    ],
+    "bankOffers": [],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "6 Months"
+    }
+  },
+  {
+    "id": 8,
+    "name": "ActionPro 4K Vlogging Camera with Stabilization & Waterproof Case",
+    "shortName": "Action & Vlogging Cams",
+    "brand": "ActionPro",
+    "category": "Electronics",
+    "categoryTag": "Trending in Electronics",
+    "images": [
+      "/images/action-cam.png"
+    ],
+    "price": 4999,
+    "originalPrice": 10999,
+    "discount": 55,
+    "rating": 4.2,
+    "ratingCount": 5670,
+    "reviewCount": 1230,
+    "seller": "CamWorld",
+    "isAssured": true,
+    "isTopDeal": false,
+    "freeDelivery": true,
+    "deliveryBy": "Tomorrow",
+    "deliveryHighlight": "Free by Tomorrow",
+    "highlights": [
+      "4K 60fps Video Recording",
+      "6-Axis EIS Stabilization",
+      "Waterproof up to 10m without case",
+      "170° Ultra Wide Angle Lens",
+      "WiFi & Bluetooth Connectivity"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000"
+      }
+    ],
+    "bankOffers": [],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "1 Year"
+    },
+    "trendingTag": "Flat 55% Off",
+    "trendingSubtitle": "Explore Pulse Choice"
+  },
+  {
+    "id": 9,
+    "name": "VisionPlus 55-inch 4K Ultra HD Smart Frameless LED TV with Dolby Audio & Voice Remote",
+    "shortName": "55\" 4K Smart LED TV",
+    "brand": "VisionPlus",
+    "category": "Appliances",
+    "categoryTag": "Trending in Appliances",
+    "images": [
+      "/images/smart-tv.png"
+    ],
+    "price": 27999,
+    "originalPrice": 49999,
+    "discount": 44,
+    "rating": 4.6,
+    "ratingCount": 18450,
+    "reviewCount": 3120,
+    "seller": "ApplianceDirect",
+    "isAssured": true,
+    "isTopDeal": true,
+    "freeDelivery": true,
+    "deliveryBy": "Thursday",
+    "deliveryHighlight": "Free Scheduled Delivery & Installation",
+    "highlights": [
+      "55 Inch 4K UHD 3840x2160 Resolution Screen",
+      "Dolby Vision & Atmos 30W Sound",
+      "Google TV with Google Assistant Voice Remote",
+      "Dual Band Wi-Fi & 3x HDMI 2.1 Ports",
+      "2 Year Comprehensive Brand Warranty"
+    ],
+    "colors": [
+      {
+        "name": "Titanium Grey",
+        "hex": "#505050",
+        "image": "/images/smart-tv.png"
+      }
+    ],
+    "bankOffers": [
+      {
+        "type": "Bank Offer",
+        "description": "Flat ₹2,500 off on HDFC & SBI Credit Cards.",
+        "hasTC": true
+      }
+    ],
+    "warranty": {
+      "replacement": "10 Days",
+      "cod": true,
+      "brandWarranty": "2 Years"
+    },
+    "trendingTag": "Mega Deal",
+    "trendingSubtitle": "From ₹27,999"
+  },
+  {
+    "id": 10,
+    "name": "UrbanDenim Rugged Trucker Denim Casual Jacket with Comfort Fit",
+    "shortName": "Men's Denim Jacket",
+    "brand": "UrbanDenim",
+    "category": "Fashion",
+    "categoryTag": "Bestseller in Fashion",
+    "images": [
+      "/images/denim-jacket.png"
+    ],
+    "price": 1499,
+    "originalPrice": 3999,
+    "discount": 62,
+    "rating": 4.3,
+    "ratingCount": 14200,
+    "reviewCount": 2100,
+    "seller": "TrendClothings",
+    "isAssured": true,
+    "isTopDeal": false,
+    "freeDelivery": true,
+    "deliveryBy": "Tomorrow",
+    "deliveryHighlight": "Free Delivery by Tomorrow",
+    "highlights": [
+      "100% Breathable Cotton Denim Fabric",
+      "Classic Button Placket & Twin Flap Chest Pockets",
+      "Machine Washable with Fade-Resistant Indigo Dye",
+      "Regular Fit for all-season layering",
+      "7 Days Hassle-free Exchange & Return"
+    ],
+    "colors": [
+      {
+        "name": "Indigo Blue",
+        "hex": "#2B4C7E",
+        "image": "/images/denim-jacket.png"
+      }
+    ],
+    "bankOffers": [
+      {
+        "type": "Special Price",
+        "description": "Buy 2 Get Extra 10% Off.",
+        "hasTC": false
+      }
+    ],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "Standard"
+    },
+    "trendingTag": "Top Rated",
+    "trendingSubtitle": "Trending in Fashion"
+  },
+  {
+    "id": 11,
+    "name": "AeroCrisp 4.5L Digital Touchscreen Smart Air Fryer with 8 Preset Cooking Modes",
+    "shortName": "Digital Air Fryer 4.5L",
+    "brand": "AeroCrisp",
+    "category": "Appliances",
+    "categoryTag": "Hot in Kitchen Appliances",
+    "images": [
+      "/images/air-fryer.png"
+    ],
+    "price": 3899,
+    "originalPrice": 7999,
+    "discount": 51,
+    "rating": 4.5,
+    "ratingCount": 8450,
+    "reviewCount": 1450,
+    "seller": "KitchenMaster",
+    "isAssured": true,
+    "isTopDeal": true,
+    "freeDelivery": true,
+    "deliveryBy": "Tomorrow",
+    "deliveryHighlight": "Free Delivery by Tomorrow, 2 PM",
+    "highlights": [
+      "Rapid 360° Hot Air Circulation technology",
+      "Up to 90% less oil needed for crispy food",
+      "Easy one-touch digital LED touch panel with 8 presets",
+      "Non-stick dishwasher safe detachable basket",
+      "Auto shut-off and overheat protection"
+    ],
+    "colors": [
+      {
+        "name": "Matte Black / Chrome",
+        "hex": "#1E1E1E",
+        "image": "/images/air-fryer.png"
+      }
+    ],
+    "bankOffers": [
+      {
+        "type": "Bank Offer",
+        "description": "10% Instant Discount on HDFC Bank Credit Cards.",
+        "hasTC": true
+      }
+    ],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "2 Years"
+    },
+    "trendingTag": "Top Kitchen",
+    "trendingSubtitle": "Under ₹3,999"
+  },
+  {
+    "id": 12,
+    "name": "Aura De Luxe French Eau De Parfum 50ml Luxury Long Lasting Fragrance",
+    "shortName": "Aura De Luxe EDP 50ml",
+    "brand": "Aura Luxe",
+    "category": "Beauty",
+    "categoryTag": "Bestseller in Beauty",
+    "images": [
+      "/images/perfume.png"
+    ],
+    "price": 999,
+    "originalPrice": 2499,
+    "discount": 60,
+    "rating": 4.4,
+    "ratingCount": 11200,
+    "reviewCount": 1940,
+    "seller": "LuxeBeauty",
+    "isAssured": true,
+    "isTopDeal": false,
+    "freeDelivery": true,
+    "deliveryBy": "Tomorrow",
+    "deliveryHighlight": "Free Delivery by Tomorrow",
+    "highlights": [
+      "Top Notes: Bergamot, Amber & Jasmine",
+      "Base Notes: Warm Vanilla, Musk & Cedarwood",
+      "Up to 16 Hours Long Lasting Eau De Parfum",
+      "Dermatologically tested & cruelty-free",
+      "Ideal luxury gift item for all occasions"
+    ],
+    "colors": [
+      {
+        "name": "Golden Amber",
+        "hex": "#D4AF37",
+        "image": "/images/perfume.png"
+      }
+    ],
+    "bankOffers": [],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "Authentic Certified"
+    },
+    "trendingTag": "Luxury Choice",
+    "trendingSubtitle": "Under ₹999"
+  },
+  {
+    "id": 13,
+    "name": "Nature's Harvest Premium California Raw Whole Almonds 100% Organic (500g)",
+    "shortName": "Organic Almonds 500g",
+    "brand": "Nature's Harvest",
+    "category": "Grocery",
+    "categoryTag": "Fresh Grocery",
+    "images": [
+      "/images/almonds.png"
+    ],
+    "price": 449,
+    "originalPrice": 799,
+    "discount": 44,
+    "rating": 4.7,
+    "ratingCount": 26800,
+    "reviewCount": 3890,
+    "seller": "GrocerySupermart",
+    "isAssured": true,
+    "isTopDeal": false,
+    "freeDelivery": true,
+    "deliveryBy": "Tomorrow, 8 AM",
+    "deliveryHighlight": "Early Morning Delivery Available",
+    "highlights": [
+      "100% Natural California Raw Whole Almonds",
+      "High in Protein, Vitamin E & Healthy Dietary Fiber",
+      "Zero preservatives, unpasteurized and non-GMO",
+      "Vacuum resealable pouch packaging for freshness",
+      "100% Quality Assured from trusted farms"
+    ],
+    "colors": [
+      {
+        "name": "Natural",
+        "hex": "#8B5A2B",
+        "image": "/images/almonds.png"
+      }
+    ],
+    "bankOffers": [],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "Freshness Guarantee"
+    },
+    "trendingTag": "Fresh Pantry",
+    "trendingSubtitle": "From ₹449"
+  },
+  {
+    "id": 14,
+    "name": "SleepLuxe 100% Egyptian Cotton Double Bedsheet Set with 2 Pillow Covers",
+    "shortName": "Cotton Double Bedsheet",
+    "brand": "SleepLuxe",
+    "category": "Home",
+    "categoryTag": "Trending in Home Decor",
+    "images": [
+      "/images/bedsheet.png"
+    ],
+    "price": 899,
+    "originalPrice": 2299,
+    "discount": 61,
+    "rating": 4.3,
+    "ratingCount": 16400,
+    "reviewCount": 2780,
+    "seller": "HomeLuxe Store",
+    "isAssured": true,
+    "isTopDeal": false,
+    "freeDelivery": true,
+    "deliveryBy": "Tomorrow",
+    "deliveryHighlight": "Free Delivery by Tomorrow",
+    "highlights": [
+      "100% Long-Staple Egyptian Breathable Cotton",
+      "300 Thread Count for extra soft luxury feel",
+      "Color fade resistant with reactive dyes",
+      "Large king size double bed dimensions (108\" x 108\")",
+      "Includes 2 matching zippered pillow covers"
+    ],
+    "colors": [
+      {
+        "name": "Pastel Sage",
+        "hex": "#7CA9A4",
+        "image": "/images/bedsheet.png"
+      }
+    ],
+    "bankOffers": [],
+    "warranty": {
+      "replacement": "7 Days",
+      "cod": true,
+      "brandWarranty": "100% Cotton Certified"
+    },
+    "trendingTag": "Best Home",
+    "trendingSubtitle": "From ₹899"
+  }
+]
