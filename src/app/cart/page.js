@@ -20,31 +20,11 @@ export default function CartPage() {
     superCoinsUsed,
     toggleSuperCoins,
     appliedCoupon,
+    loading: cartLoading,
   } = useCart();
 
-  const [addresses, setAddresses] = useState([
-    {
-      id: 1,
-      name: 'Rahul Sharma',
-      phone: '+91 98765 43210',
-      pincode: '560034',
-      address: 'Flat 402, Lotus Greens, 4th Cross, Koramangala',
-      city: 'Bengaluru',
-      label: 'HOME',
-      isDefault: true,
-    },
-    {
-      id: 2,
-      name: 'Rahul Sharma (Office)',
-      phone: '+91 98765 43210',
-      pincode: '560103',
-      address: 'Prestige Tech Park, Outer Ring Road, Marathahalli',
-      city: 'Bengaluru',
-      label: 'WORK',
-      isDefault: false,
-    },
-  ]);
-  const [selectedAddressId, setSelectedAddressId] = useState(1);
+  const [addresses, setAddresses] = useState([]);
+  const [selectedAddressId, setSelectedAddressId] = useState(null);
   const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
 
   useEffect(() => {
@@ -60,7 +40,17 @@ export default function CartPage() {
       .catch(() => {});
   }, []);
 
-  const currentAddress = addresses.find((a) => a.id === selectedAddressId) || addresses[0];
+  const currentAddress = addresses.find((a) => a.id === selectedAddressId) || addresses[0] || null;
+
+  if (cartLoading && (!cartItems || cartItems.length === 0)) {
+    return (
+      <div className={styles.cartPage}>
+        <div style={{ textAlign: 'center', padding: '60px 20px', color: '#878787' }}>
+          <p>Loading cart...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!cartItems || cartItems.length === 0) {
     if (!isLoading && !isAuthenticated) {
@@ -158,14 +148,20 @@ export default function CartPage() {
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
               <span className={styles.addressText}>
-                Deliver to: <strong>{currentAddress?.name}, {currentAddress?.pincode}</strong>
-                <span style={{ fontSize: '11px', color: '#777', marginLeft: '6px' }}>
-                  ({currentAddress?.label || 'HOME'})
-                </span>
+                {currentAddress ? (
+                  <>
+                    Deliver to: <strong>{currentAddress.name}, {currentAddress.pincode}</strong>
+                    <span style={{ fontSize: '11px', color: '#777', marginLeft: '6px' }}>
+                      ({currentAddress.label || 'HOME'})
+                    </span>
+                  </>
+                ) : (
+                  <span>Select or add delivery address</span>
+                )}
               </span>
             </div>
             <button className={styles.changeBtn} onClick={() => setIsAddressModalOpen(true)}>
-              Change
+              {currentAddress ? 'Change' : 'Add Address'}
             </button>
           </div>
 

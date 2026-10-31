@@ -242,15 +242,17 @@ export default function OrderInvoicePage({ params: paramsPromise }) {
           <div className={styles.addressCol}>
             <div className={styles.addressTitle}>Billing Address</div>
             <div className={styles.addressText}>
-              <strong>{order.address?.name || 'Rahul Sharma'}</strong>
+              <strong>{order.address?.name || 'Customer'}</strong>
               <br />
-              {order.address?.address || 'Flat 402, Lotus Greens, 4th Cross, Koramangala'}
+              {order.address?.address || 'Standard Delivery Address'}
               <br />
-              {order.address?.city || 'Bengaluru'}, Karnataka - {order.address?.pincode || '560034'}
-              <br />
-              State / UT: <strong>Karnataka (State Code: 29)</strong>
-              <br />
-              Contact: {order.address?.phone || '+91 98765 43210'}
+              {order.address?.city || ''}{order.address?.pincode ? ` - ${order.address.pincode}` : ''}
+              {order.address?.phone ? (
+                <>
+                  <br />
+                  Contact: {order.address.phone}
+                </>
+              ) : null}
             </div>
           </div>
 
@@ -258,15 +260,17 @@ export default function OrderInvoicePage({ params: paramsPromise }) {
           <div className={styles.addressCol}>
             <div className={styles.addressTitle}>Shipping Address</div>
             <div className={styles.addressText}>
-              <strong>{order.address?.name || 'Rahul Sharma'}</strong>
+              <strong>{order.address?.name || 'Customer'}</strong>
               <br />
-              {order.address?.address || 'Flat 402, Lotus Greens, 4th Cross, Koramangala'}
+              {order.address?.address || 'Standard Delivery Address'}
               <br />
-              {order.address?.city || 'Bengaluru'}, Karnataka - {order.address?.pincode || '560034'}
-              <br />
-              Place of Supply: <strong>Karnataka (29)</strong>
-              <br />
-              Contact: {order.address?.phone || '+91 98765 43210'}
+              {order.address?.city || ''}{order.address?.pincode ? ` - ${order.address.pincode}` : ''}
+              {order.address?.phone ? (
+                <>
+                  <br />
+                  Contact: {order.address.phone}
+                </>
+              ) : null}
             </div>
           </div>
         </div>

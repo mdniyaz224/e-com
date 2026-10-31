@@ -17,7 +17,7 @@ export async function PUT(request) {
       item.quantity = quantity;
     }
 
-    saveCart(cartItems);
+    await saveCart(cartItems);
     return NextResponse.json({ success: true, cart: cartItems });
   } catch (err) {
     return NextResponse.json({ error: 'Failed to update item quantity', details: err.message }, { status: 500 });

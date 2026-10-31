@@ -13,31 +13,8 @@ export default function CheckoutPage() {
   const { cartItems, superCoinsUsed, appliedCoupon, placeOrder } = useCart();
 
   // Address state
-  const [addresses, setAddresses] = useState([
-    {
-      id: 1,
-      name: 'Rahul Sharma',
-      phone: '+91 98765 43210',
-      pincode: '560034',
-      address: 'Flat 402, Lotus Greens, 4th Cross, Koramangala',
-      city: 'Bengaluru',
-      state: 'Karnataka',
-      type: 'HOME',
-      isDefault: true,
-    },
-    {
-      id: 2,
-      name: 'Rahul Sharma (Office)',
-      phone: '+91 98765 43210',
-      pincode: '560103',
-      address: 'Prestige Tech Park, Outer Ring Road, Marathahalli',
-      city: 'Bengaluru',
-      state: 'Karnataka',
-      type: 'WORK',
-      isDefault: false,
-    },
-  ]);
-  const [selectedAddressId, setSelectedAddressId] = useState(1);
+  const [addresses, setAddresses] = useState([]);
+  const [selectedAddressId, setSelectedAddressId] = useState(null);
   const [showNewAddressForm, setShowNewAddressForm] = useState(false);
   const [newAddr, setNewAddr] = useState({
     name: '',
@@ -56,7 +33,7 @@ export default function CheckoutPage() {
           const mapped = data.addresses.map((a) => ({
             id: a.id,
             name: a.name,
-            phone: a.phone || '+91 98765 43210',
+            phone: a.phone || '',
             pincode: a.pincode,
             address: a.address,
             city: a.city,
@@ -66,9 +43,15 @@ export default function CheckoutPage() {
           setAddresses(mapped);
           const def = mapped.find((a) => a.isDefault) || mapped[0];
           setSelectedAddressId(def.id);
+        } else {
+          setAddresses([]);
+          setShowNewAddressForm(true);
         }
       })
-      .catch(() => {});
+      .catch(() => {
+        setAddresses([]);
+        setShowNewAddressForm(true);
+      });
   }, []);
 
   // Payment method selection
@@ -149,6 +132,12 @@ export default function CheckoutPage() {
     setIsSubmitting(true);
     try {
       const selectedAddr = addresses.find((a) => a.id === selectedAddressId) || addresses[0];
+      if (!selectedAddr) {
+        alert('Please add a delivery address before placing your order.');
+        setShowNewAddressForm(true);
+        setIsSubmitting(false);
+        return;
+      }
       const methodLabels = {
         upi: `UPI (${upiApp === 'gpay' ? 'Google Pay' : upiApp === 'phonepe' ? 'PhonePe' : 'Paytm'})`,
         card: 'Credit / Debit Card',
@@ -228,6 +217,18 @@ export default function CheckoutPage() {
         </div>
 
         <div className={styles.addressList}>
+          {addresses.length === 0 && !showNewAddressForm && (
+            <div style={{ padding: '20px', textAlign: 'center', color: '#64748b' }}>
+              <p style={{ margin: '0 0 12px', fontSize: '14px' }}>No delivery address added yet.</p>
+              <button
+                type="button"
+                className={styles.addBtn}
+                onClick={() => setShowNewAddressForm(true)}
+              >
+                + Add Delivery Address
+              </button>
+            </div>
+          )}
           {addresses.map((addr) => {
             const isSelected = selectedAddressId === addr.id;
             return (
@@ -277,7 +278,7 @@ export default function CheckoutPage() {
             <div className={styles.inputRow}>
               <input
                 className={styles.inputField}
-                placeholder="Pincode (e.g. 560034) *"
+                placeholder="6-digit Pincode *"
                 value={newAddr.pincode}
                 onChange={(e) => setNewAddr({ ...newAddr, pincode: e.target.value })}
                 required

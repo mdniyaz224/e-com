@@ -2,38 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // In-memory cart storage
-let cartItems = [
-  {
-    id: 1,
-    productId: 1,
-    name: "NovaSound Pro ANC Wireless Headphones (Matte Obsidian)",
-    image: "/images/headphones.png",
-    price: 2499,
-    originalPrice: 6999,
-    discount: 64,
-    seller: "RetailNet",
-    color: "Matte Obsidian",
-    quantity: 1,
-    isAssured: true,
-    deliveryBy: "Tomorrow, 2 PM",
-    deliveryFree: true
-  },
-  {
-    id: 2,
-    productId: 7,
-    name: "Braided Fast Charging Type-C Cable 65W (1.5m)",
-    image: "/images/usb-cable.png",
-    price: 349,
-    originalPrice: 999,
-    discount: 65,
-    seller: "TechElectro",
-    color: "Black",
-    quantity: 1,
-    isAssured: true,
-    deliveryBy: "Thursday",
-    deliveryFree: true
-  }
-];
+let cartItems = [];
 
 // GET cart
 router.get('/', (req, res) => {

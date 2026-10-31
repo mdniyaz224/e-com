@@ -33,7 +33,7 @@ export default function HelpCentrePage() {
 
   // Live Chat Assistant State
   const [chatMessages, setChatMessages] = useState([
-    { sender: 'bot', text: 'Hello Rahul! 👋 I am your PulseBot 24x7 Assistant. How can I help you today?' }
+    { sender: 'bot', text: 'Hello! 👋 I am your PulseBot 24x7 Assistant. How can I help you today?' }
   ]);
   const [chatInput, setChatInput] = useState('');
 
@@ -42,7 +42,7 @@ export default function HelpCentrePage() {
     let botReply = '';
 
     if (promptText.toLowerCase().includes('track') || promptText.toLowerCase().includes('order')) {
-      botReply = 'You can review real-time delivery status for all your shipments on the "My Orders" page. Your most recent order OD56768941 is currently in transit with PulseKart Express Logistics!';
+      botReply = 'You can review real-time delivery status and tracking updates for all your shipments on the "My Orders" page anytime!';
     } else if (promptText.toLowerCase().includes('cancel')) {
       botReply = 'To cancel an order, navigate to "My Orders" -> Select Order -> Click "Cancel This Order". Any prepaid amount is reversed instantly to your bank account.';
     } else if (promptText.toLowerCase().includes('refund')) {

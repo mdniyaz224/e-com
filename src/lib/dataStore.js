@@ -109,15 +109,6 @@ export async function getOrders() {
   const db = await getDatabase();
   if (db) {
     const col = db.collection('orders');
-    const count = await col.countDocuments();
-    if (count === 0 && !globalStore.seeded?.has('orders')) {
-      const initial = loadJson('orders.json', []);
-      if (initial.length > 0) {
-        await col.insertMany(initial.map((o) => ({ ...o })));
-        globalStore.seeded?.add('orders');
-        console.log(`[MongoDB Atlas] Auto-seeded ${initial.length} orders into collection 'orders'.`);
-      }
-    }
     const docs = await col.find({}).sort({ date: -1 }).toArray();
     return cleanMongoDoc(docs);
   }
@@ -150,19 +141,18 @@ export async function getUser() {
     if (!doc) {
       const initial = loadJson('user.json', {
         id: 1,
-        name: 'Rahul Sharma',
-        phone: '+91 98765 43210',
-        email: 'rahul.sharma@pulsekart.in',
+        name: 'PulseKart Shopper',
+        phone: '+91 9523990312',
+        email: 'mdniyaz1842000@gmail.com',
         avatar: '/images/profile-avatar.png',
-        isPlusMember: true,
+        isPlusMember: false,
         gender: 'Male',
-        password: 'pulsekart123',
         addresses: [],
-        superCoins: { balance: 450, value: 450 },
+        savedCards: [],
+        superCoins: { balance: 0, value: 0 },
       });
       await col.insertOne({ ...initial });
       doc = initial;
-      console.log("[MongoDB Atlas] Auto-seeded default user into collection 'users'.");
     }
     return cleanMongoDoc(doc);
   }
@@ -170,15 +160,15 @@ export async function getUser() {
   if (!globalStore.user) {
     globalStore.user = loadJson('user.json', {
       id: 1,
-      name: 'Rahul Sharma',
-      phone: '+91 98765 43210',
-      email: 'rahul.sharma@pulsekart.in',
+      name: 'PulseKart Shopper',
+      phone: '+91 9523990312',
+      email: 'mdniyaz1842000@gmail.com',
       avatar: '/images/profile-avatar.png',
-      isPlusMember: true,
+      isPlusMember: false,
       gender: 'Male',
-      password: 'pulsekart123',
       addresses: [],
-      superCoins: { balance: 450, value: 450 },
+      savedCards: [],
+      superCoins: { balance: 0, value: 0 },
     });
   }
   return globalStore.user;
@@ -263,14 +253,6 @@ export async function getNotifications() {
   const db = await getDatabase();
   if (db) {
     const col = db.collection('notifications');
-    const count = await col.countDocuments();
-    if (count === 0 && !globalStore.seeded?.has('notifications')) {
-      const initial = loadJson('notifications.json', []);
-      if (initial.length > 0) {
-        await col.insertMany(initial.map((n) => ({ ...n })));
-        globalStore.seeded?.add('notifications');
-      }
-    }
     const docs = await col.find({}).sort({ createdAt: -1 }).toArray();
     return deduplicateNotifications(cleanMongoDoc(docs));
   }
@@ -426,18 +408,36 @@ export async function pushNotification(notif) {
   return newNotif;
 }
 
-// 6. CART (Session based / in-memory or persisted)
+// 6. CART (Session based / in-memory or persisted via MongoDB Atlas)
 export async function getCart() {
+  const db = await getDatabase();
+  if (db) {
+    const col = db.collection('cart');
+    const docs = await col.find({}).toArray();
+    if (docs.length > 0) {
+      return cleanMongoDoc(docs);
+    }
+  }
+
   if (globalStore.cart === undefined) {
     globalStore.cart = loadJson('cart.json', []);
   }
-  return globalStore.cart;
+  return globalStore.cart || [];
 }
 
 export async function saveCart(cart) {
   const safeCart = Array.isArray(cart) ? cart : [];
   globalStore.cart = safeCart;
   saveJson('cart.json', safeCart);
+
+  const db = await getDatabase();
+  if (db) {
+    const col = db.collection('cart');
+    await col.deleteMany({});
+    if (safeCart.length > 0) {
+      await col.insertMany(safeCart.map((i) => ({ ...i })));
+    }
+  }
 }
 
 // 7. AUTH OTP & SESSIONS STORE

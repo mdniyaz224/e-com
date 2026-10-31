@@ -14,7 +14,7 @@ export async function DELETE(request) {
     let cartItems = await getCart();
     if (id) {
       cartItems = cartItems.filter((i) => String(i.id) !== String(id) && String(i.productId) !== String(id));
-      saveCart(cartItems);
+      await saveCart(cartItems);
     }
 
     return NextResponse.json({ success: true, cart: cartItems });

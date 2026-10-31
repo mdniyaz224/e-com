@@ -18,8 +18,17 @@ export default function ProductPage() {
   const [selectedColor, setSelectedColor] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const [wishlisted, setWishlisted] = useState(false);
-  const [pincode, setPincode] = useState('560034');
+  const [pincode, setPincode] = useState('');
   const [showAllOffers, setShowAllOffers] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const savedPin = localStorage.getItem('pulsekart_pincode');
+        if (savedPin) setPincode(savedPin);
+      } catch {}
+    }
+  }, []);
   const [addedToCart, setAddedToCart] = useState(false);
   const [touchStartX, setTouchStartX] = useState(null);
   const [touchEndX, setTouchEndX] = useState(null);
@@ -146,14 +155,16 @@ export default function ProductPage() {
     }
   };
 
-  const handleAddToCart = () => {
-    addToCart(product, activeColor?.name || 'Standard', 1, activeImage);
+  const handleAddToCart = async () => {
+    if (!product) return;
+    await addToCart(product, activeColor?.name || 'Standard', 1, activeImage);
     setAddedToCart(true);
     setTimeout(() => setAddedToCart(false), 2000);
   };
 
-  const handleBuyNow = () => {
-    addToCart(product, activeColor?.name || 'Standard', 1, activeImage);
+  const handleBuyNow = async () => {
+    if (!product) return;
+    await addToCart(product, activeColor?.name || 'Standard', 1, activeImage);
     router.push('/cart');
   };
 
@@ -471,6 +482,9 @@ export default function ProductPage() {
             className={styles.checkBtn}
             onClick={() => {
               if (pincode && pincode.length >= 6) {
+                if (typeof window !== 'undefined') {
+                  try { localStorage.setItem('pulsekart_pincode', pincode); } catch {}
+                }
                 alert(`✓ Serviceable! Express delivery is available for pincode ${pincode} by tomorrow.`);
               } else {
                 alert('Please enter a valid 6-digit Indian pincode.');
@@ -488,7 +502,7 @@ export default function ProductPage() {
             <circle cx="18.5" cy="18.5" r="2.5"></circle>
           </svg>
           <div>
-            <p className={styles.deliveryTo}>Delivery to {pincode}</p>
+            <p className={styles.deliveryTo}>Delivery to {pincode || 'your location'}</p>
             <p className={styles.deliveryTime}>{product.deliveryHighlight || 'Fast delivery available'}</p>
           </div>
         </div>

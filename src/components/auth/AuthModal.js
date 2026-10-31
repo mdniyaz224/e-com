@@ -19,7 +19,6 @@ export default function AuthModal() {
     forgotPassword,
     resetPassword,
     loginWithPassword,
-    quickDemoLogin,
   } = useAuth();
 
   // Local Form States
@@ -356,17 +355,6 @@ export default function AuthModal() {
     }
   };
 
-  // Handle Quick Demo Login
-  const handleQuickDemo = async () => {
-    setErrorMessage('');
-    setIsSubmitting(true);
-    const res = await quickDemoLogin();
-    setIsSubmitting(false);
-    if (!res.success) {
-      setErrorMessage(res.error || 'Failed demo login');
-    }
-  };
-
   // Dynamic Titles based on Mode
   const getBannerInfo = () => {
     switch (authModalMode) {
@@ -525,20 +513,6 @@ export default function AuthModal() {
                   Forgot Password?
                 </button>
               </div>
-
-              <div className={styles.orDivider}>
-                <span>OR</span>
-              </div>
-
-              <button
-                type="button"
-                className={styles.demoQuickBtn}
-                onClick={handleQuickDemo}
-                disabled={isSubmitting}
-              >
-                <span>⚡</span>
-                <span>Instant Demo Login (Rahul Sharma)</span>
-              </button>
 
               <div className={styles.bottomSwitch}>
                 <button
@@ -868,20 +842,6 @@ export default function AuthModal() {
                     />
                   ))}
                 </div>
-              </div>
-
-              {/* Demo Test OTP Auto-fill Banner */}
-              <div className={styles.otpHintBanner}>
-                <span>
-                  💡 Test OTP: <strong>{demoOtpHint || '123456'}</strong>
-                </span>
-                <button
-                  type="button"
-                  className={styles.autoFillBadge}
-                  onClick={handleAutoFillOtp}
-                >
-                  Auto-fill & Proceed
-                </button>
               </div>
 
               <div className={styles.resendRow}>

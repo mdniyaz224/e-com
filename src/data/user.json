@@ -1,85 +1,32 @@
 {
   "id": 1,
-  "name": "Farhan Akhtar",
-  "phone": "+91 9811223344",
+  "name": "PulseKart Shopper",
+  "phone": "+91 9523990312",
   "avatar": "/images/profile-avatar.png",
   "isPlusMember": false,
   "email": "mdniyaz1842000@gmail.com",
   "gender": "Male",
-  "password": "Password@123",
-  "addresses": [
-    {
-      "id": 1,
-      "label": "HOME",
-      "name": "Rahul Sharma",
-      "pincode": "560034",
-      "address": "Flat 402, Lotus Greens, 4th Cross, Koramangala...",
-      "city": "Bengaluru",
-      "isDefault": true
-    }
-  ],
+  "addresses": [],
   "orders": {
-    "recent": {
-      "id": "PK-9812489",
-      "productName": "NovaSound Pro ANC Wireless Headphones",
-      "productImage": "/images/headphones.png",
-      "items": 1,
-      "status": "Shipped",
-      "statusSteps": [
-        "Ordered",
-        "Packed",
-        "Shipped",
-        "Delivery"
-      ],
-      "currentStep": 2,
-      "deliveryBy": "Tomorrow by 2 PM"
-    }
+    "recent": null
   },
-  "wishlistCount": 12,
-  "couponsCount": 4,
+  "wishlistCount": 0,
+  "couponsCount": 0,
   "pulsePay": {
-    "status": "Approved",
-    "availableCredit": 22452,
-    "totalApproved": 25000
+    "status": "Not Activated",
+    "availableCredit": 0,
+    "totalApproved": 0
   },
   "superCoins": {
-    "balance": 450,
-    "value": 450
+    "balance": 0,
+    "value": 0
   },
-  "seller": {
-    "id": "IN-DEL-8941",
-    "isLive": true,
-    "todaySales": 18420,
-    "totalOrders": 14,
-    "dispatches": 3,
-    "pendingPickup": true,
-    "rating": 4.8,
-    "ratingLabel": "Top Rated"
-  },
+  "seller": null,
   "settings": {
-    "savedAddresses": 3,
-    "savedCards": 2,
-    "paymentApps": [
-      "Google Pay"
-    ],
+    "savedAddresses": 0,
+    "savedCards": 0,
+    "paymentApps": [],
     "language": "English"
   },
-  "savedCards": [
-    {
-      "id": 1,
-      "bank": "HDFC Bank",
-      "cardType": "Credit Card",
-      "last4": "4921",
-      "holder": "Rahul Sharma",
-      "expiry": "09/28"
-    },
-    {
-      "id": 2,
-      "bank": "Axis Bank",
-      "cardType": "PulseKart Co-branded",
-      "last4": "8832",
-      "holder": "Rahul Sharma",
-      "expiry": "11/27"
-    }
-  ]
+  "savedCards": []
 }

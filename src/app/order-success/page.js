@@ -26,22 +26,15 @@ function OrderSuccessContent() {
       setOrder(data);
     } catch {
       if (!order) {
-        // Fallback for demo if id not found
         setOrder({
           id: orderId,
           status: 'Confirmed',
           currentStep: 1,
-          deliveryEstimate: 'Tomorrow by 2 PM',
-          paymentMethod: 'UPI',
-          totalAmount: 2499,
-          savings: 4500,
-          address: {
-            name: 'Rahul Sharma',
-            phone: '+91 98765 43210',
-            address: 'Flat 402, Lotus Greens, 4th Cross, Koramangala',
-            city: 'Bengaluru',
-            pincode: '560034',
-          },
+          deliveryEstimate: 'Standard Express (2-4 Days)',
+          paymentMethod: 'Online Payment',
+          totalAmount: 0,
+          savings: 0,
+          address: null,
           items: [],
         });
       }

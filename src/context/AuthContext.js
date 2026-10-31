@@ -262,12 +262,7 @@ export function AuthProvider({ children }) {
     }
   };
 
-  // 7. Quick Demo Login
-  const quickDemoLogin = async () => {
-    return await verifyOtp('9876543210', '123456', 'Rahul Sharma');
-  };
-
-  // 8. Logout
+  // 7. Logout
   const logout = async () => {
     try {
       if (token) {
@@ -317,7 +312,6 @@ export function AuthProvider({ children }) {
     forgotPassword,
     resetPassword,
     loginWithPassword,
-    quickDemoLogin,
     logout,
     updateUser
   };

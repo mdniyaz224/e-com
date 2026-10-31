@@ -19,7 +19,7 @@ export default function TopBar() {
   }
   const initialQuery = searchParams ? searchParams.get('search') || '' : '';
   const [searchQuery, setSearchQuery] = useState(initialQuery);
-  const [address, setAddress] = useState('Rahul, Bengaluru 560034');
+  const [address, setAddress] = useState('Select delivery location');
   const [isChangingAddress, setIsChangingAddress] = useState(false);
   const [tempAddress, setTempAddress] = useState('');
   const [isLocating, setIsLocating] = useState(false);
@@ -27,6 +27,20 @@ export default function TopBar() {
   const [isSearchingLocation, setIsSearchingLocation] = useState(false);
   const { cartCount } = useCart();
   const { unreadCount } = useNotifications();
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const savedLoc = localStorage.getItem('pulsekart_location');
+        if (savedLoc) {
+          setAddress(savedLoc);
+        } else if (user?.addresses && user.addresses.length > 0) {
+          const def = user.addresses.find((a) => a.isDefault) || user.addresses[0];
+          setAddress(`${def.name ? def.name.split(' ')[0] + ', ' : ''}${def.city} ${def.pincode}`);
+        }
+      } catch {}
+    }
+  }, [user]);
 
   useEffect(() => {
     if (searchParams) {
@@ -83,12 +97,20 @@ export default function TopBar() {
             const city = addr.city || addr.town || addr.state_district || 'Bengaluru';
             const postcode = addr.postcode ? ` - ${addr.postcode}` : '';
             const detected = `${area ? area + ', ' : ''}${city}${postcode}`;
-            const fullAddress = `Rahul, ${detected}`;
+            const userPrefix = user?.name ? `${user.name.split(' ')[0]}, ` : '';
+            const fullAddress = `${userPrefix}${detected}`;
             setAddress(fullAddress);
             setTempAddress(fullAddress);
+            if (typeof window !== 'undefined') {
+              try { localStorage.setItem('pulsekart_location', fullAddress); } catch {}
+            }
             setIsChangingAddress(false);
           } else {
-            setAddress(`Rahul, Current Location (${latitude.toFixed(2)}, ${longitude.toFixed(2)})`);
+            const locStr = `Current Location (${latitude.toFixed(2)}, ${longitude.toFixed(2)})`;
+            setAddress(locStr);
+            if (typeof window !== 'undefined') {
+              try { localStorage.setItem('pulsekart_location', locStr); } catch {}
+            }
             setIsChangingAddress(false);
           }
         } catch (err) {
@@ -110,9 +132,13 @@ export default function TopBar() {
     const city = addr.city || addr.town || addr.state_district || addr.state || '';
     const postcode = addr.postcode ? ` ${addr.postcode}` : '';
     const shortLabel = `${place.name || addr.suburb || city}, ${city}${postcode}`;
-    const formatted = `Rahul, ${shortLabel}`;
+    const userPrefix = user?.name ? `${user.name.split(' ')[0]}, ` : '';
+    const formatted = `${userPrefix}${shortLabel}`;
     setAddress(formatted);
     setTempAddress(formatted);
+    if (typeof window !== 'undefined') {
+      try { localStorage.setItem('pulsekart_location', formatted); } catch {}
+    }
     setSuggestions([]);
     setIsChangingAddress(false);
   };
@@ -276,7 +302,7 @@ export default function TopBar() {
                     <div className={styles.dropdownItem} onClick={() => { setIsUserMenuOpen(false); router.push('/coupons'); }}>
                       <span>🪙</span> SuperCoin Zone
                       <span style={{ marginLeft: 'auto', fontWeight: 700, color: '#fb641b', fontSize: '11px' }}>
-                        {user?.superCoins?.balance || 450} coins
+                        {user?.superCoins?.balance ?? 0} coins
                       </span>
                     </div>
                     <div className={styles.dropdownItem} onClick={() => { setIsUserMenuOpen(false); router.push('/orders'); }}>

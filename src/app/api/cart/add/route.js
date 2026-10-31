@@ -41,7 +41,7 @@ export async function POST(request) {
       });
     }
 
-    saveCart(cartItems);
+    await saveCart(cartItems);
     return NextResponse.json({ success: true, cart: cartItems });
   } catch (err) {
     return NextResponse.json({ error: 'Failed to add item to cart', details: err.message }, { status: 500 });

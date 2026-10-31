@@ -181,13 +181,13 @@ export default function AccountPage() {
   };
 
   const userData = user || authUser || {
-    name: 'Rahul Sharma',
-    phone: '+91 98765 43210',
-    email: 'rahul.sharma@pulsekart.in',
+    name: 'PulseKart Shopper',
+    phone: '',
+    email: '',
     gender: 'Male',
-    isPlusMember: true,
-    superCoins: { balance: 450 },
-    pulsePay: { availableCredit: 22452, totalApproved: 25000 },
+    isPlusMember: false,
+    superCoins: { balance: 0, value: 0 },
+    pulsePay: { status: 'Not Activated', availableCredit: 0, totalApproved: 0 },
     addresses: [],
     savedCards: [],
   };
@@ -444,19 +444,29 @@ export default function AccountPage() {
       <div className={styles.creditCard}>
         <div className={styles.creditTop}>
           <span className={styles.creditTitle}>PulsePay Later</span>
-          <span className={styles.creditBadge}>✓ Active & Approved</span>
+          <span className={styles.creditBadge}>
+            {userData.pulsePay?.status === 'Approved' ? '✓ Active & Approved' : 'Instant Checkout Credit'}
+          </span>
         </div>
         <div className={styles.creditLimit}>
-          {formatPrice(userData.pulsePay?.availableCredit || 22452)}
+          {formatPrice(userData.pulsePay?.availableCredit || 0)}
         </div>
         <div className={styles.creditSub}>
-          Available credit limit out of {formatPrice(userData.pulsePay?.totalApproved || 25000)}
+          {userData.pulsePay?.totalApproved
+            ? `Available credit limit out of ${formatPrice(userData.pulsePay.totalApproved)}`
+            : 'Get instant credit up to ₹25,000 with 0% interest for 30 days'}
         </div>
         <button
           className={styles.payBillBtn}
-          onClick={() => alert('No pending dues! Next statement generates on the 1st.')}
+          onClick={() => {
+            if (userData.pulsePay?.status === 'Approved') {
+              alert('No pending dues! Next statement generates on the 1st.');
+            } else {
+              alert('PulsePay application received! Verification takes 2-3 minutes.');
+            }
+          }}
         >
-          View Statement
+          {userData.pulsePay?.status === 'Approved' ? 'View Statement' : 'Apply Now'}
         </button>
       </div>
 
@@ -487,7 +497,7 @@ export default function AccountPage() {
             <div>
               <div className={styles.settingTitle}>Saved Addresses</div>
               <div className={styles.settingDesc}>
-                {userData.addresses?.length || 2} registered delivery locations
+                {userData.addresses?.length || 0} registered delivery locations
               </div>
             </div>
           </div>
@@ -618,7 +628,7 @@ export default function AccountPage() {
                 <input
                   className={styles.formInput}
                   type="text"
-                  placeholder="e.g. Rahul Sharma"
+                  placeholder="Enter your full name"
                   value={editFormData.name}
                   onChange={(e) => setEditFormData((prev) => ({ ...prev, name: e.target.value }))}
                   required
@@ -644,7 +654,7 @@ export default function AccountPage() {
                 <input
                   className={styles.formInput}
                   type="tel"
-                  placeholder="+91 98765 43210"
+                  placeholder="10-digit mobile number"
                   value={editFormData.phone}
                   onChange={(e) => setEditFormData((prev) => ({ ...prev, phone: e.target.value }))}
                   required
@@ -889,7 +899,9 @@ export default function AccountPage() {
                 <div style={{ fontSize: '20px' }}>📱</div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: '13px', fontWeight: 600 }}>Google Pay UPI</div>
-                  <div style={{ fontSize: '11px', color: '#777' }}>Primary UPI ID: rahul.sharma@okhdfcbank</div>
+                  <div style={{ fontSize: '11px', color: '#777' }}>
+                    {userData.phone ? `Linked to ${userData.phone}` : 'UPI payments enabled'}
+                  </div>
                 </div>
                 <span style={{ fontSize: '11px', color: '#2e7d32', fontWeight: 700 }}>VERIFIED</span>
               </div>
